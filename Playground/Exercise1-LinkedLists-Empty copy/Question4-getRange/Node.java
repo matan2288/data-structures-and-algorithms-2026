@@ -15,19 +15,8 @@ public class Node {
     // maximum and minimum value in the linked list pointed to by head.
     // Return 0 if the list is empty.
     public static int getRange(Node head) {
-        int min = head.data;
-        int max = head.data;
-
-        while (head != null) {
-            if (head.data >= max) {
-                max = head.data;
-            } else if (head.data <= min) {
-                min = head.data;
-            }
-            head = head.next;
-        }
-
-        return max - min;
+        // TODO: implement
+        return 0;
     }
 
     public static void main(String[] args) {

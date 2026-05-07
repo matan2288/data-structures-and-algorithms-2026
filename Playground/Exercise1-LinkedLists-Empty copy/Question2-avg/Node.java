@@ -15,16 +15,8 @@ public class Node {
     // in the linked list pointed to by list. The average should be reported as 0
     // if the list is empty.
     public static double avg(Node list) {
-        double sum = 0;
-        int counter = 0;
-
-        while (list != null) {
-            sum = sum + list.data;
-            counter++;
-            list = list.next;
-        }
-
-        return sum / counter;
+        // TODO: implement
+        return 0;
     }
 
     public static void main(String[] args) {

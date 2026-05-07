@@ -25,55 +25,9 @@ public class Node {
     // The first item might be deleted, so the head may change.
     // If all nodes are deleted, return null.
 
-    // ! Other Solution
-    // public static Node deleteNum(int n, Node intNode) {
-    // // Skip all matching nodes at the head
-    // while (intNode != null && intNode.data == n) {
-    // intNode = intNode.next;
-    // }
-    // // If list is now empty (all nodes matched), return null
-    // if (intNode == null)
-    // return null;
-
-    // Node previous = intNode;
-    // Node current = previous.next;
-
-    // while (current != null) {
-    // if (current.data = n) {
-    // previous = current.next;
-    // } else {
-    // previous = current; // only advance previous if NOT deleting
-    // }
-    // current = current.next;
-
-    // }
-
-    // return intNode;
-    // }
-
     public static Node deleteNum(int n, Node intNode) {
-        if (intNode == null || intNode.next == null || intNode.next.next == null) {
-            return intNode;
-        }
-
-        Node head = intNode;
-        Node prev = intNode;
-        Node current = prev.next;
-
-        if (head.data == n) {
-            head = current;
-        }
-
-        while (current != null) {
-            if (current.data == n) {
-                prev.next = current.next;
-                current = current.next;
-            } else {
-                current = current.next;
-            }
-        }
-
-        return head;
+        // TODO: implement
+        return null;
     }
 
     public static void main(String[] args) {

@@ -16,17 +16,8 @@ public class Node {
     // next one). Return true if sorted, false otherwise.
     // An empty list or a single-element list is considered sorted.
     public static boolean sorted(Node head) {
-        boolean isSorted = true;
-
-        while (head.next != null) {
-            if (head.data > head.next.data) {
-                isSorted = false;
-                break;
-            }
-            head = head.next;
-        }
-
-        return isSorted;
+        // TODO: implement
+        return false;
     }
 
     public static void main(String[] args) {

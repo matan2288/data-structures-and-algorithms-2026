@@ -24,15 +24,8 @@ public class Node {
     // last node).
     // Do not create new nodes, free existing nodes, or modify any data values.
     public static Node reverse(Node intList) {
-        Node previous = null;
-        Node current = intList;
-        while (current != null) {
-            Node next = current.next; // save
-            current.next = previous; // flip
-            previous = current; // advance
-            current = next; // advance
-        }
-        return previous;
+        // TODO: implement
+        return null;
     }
 
     public static void main(String[] args) {

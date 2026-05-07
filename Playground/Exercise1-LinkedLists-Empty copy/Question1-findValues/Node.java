@@ -14,14 +14,8 @@ public class Node {
     // Q1: Complete the following method that returns the number of times that the
     // integer value num appears in the linked list pointed to by head.
     public static int findValues(int num, Node head) {
-        int counter = 0;
-        while (head != null) {
-            if (head.data == num) {
-                counter++;
-            }
-            head = head.next;
-        }
-        return counter;
+        // TODO: implement
+        return 0;
     }
 
     public static void main(String[] args) {

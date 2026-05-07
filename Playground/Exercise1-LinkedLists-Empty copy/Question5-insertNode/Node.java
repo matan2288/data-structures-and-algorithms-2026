@@ -24,48 +24,9 @@ public class Node {
     // The list might be empty (intNode == null), or val might be smaller than the
     // first value, so the head may change.
 
-    //! Other Solution
-    // public static Node insertNode(int val, Node intNode) {
-    // Node headnode_backup = intNode;
-    // Node previous = intNode;
-    // Node current = previous.next;
-
-    // while (current != null) {
-    // if (current.data <= val && current.next.data >= val) {
-    // previous = current;
-    // current = new Node(val);
-    // current = current.next;
-    // } else {
-    // current = current.next;
-    // }
-
-    // }
-
-    // return headnode_backup;
-    // }
-
     public static Node insertNode(int val, Node intNode) {
-        if (intNode == null || intNode.next == null) {
-            return intNode;
-        }
-        Node head = intNode;
-        Node new_node = new Node(val);
-        Node before_val = intNode;
-        Node after_val = intNode;
-
-        while (intNode.next != null) {
-            if (intNode.data <= val && intNode.next.data >= val) {
-                before_val = intNode;
-            } else if (intNode.data >= val) {
-                after_val = intNode;
-            }
-            intNode = intNode.next;
-        }
-
-        before_val.next = new_node;
-        new_node.next = after_val;
-
-        return head;
+        // TODO: implement
+        return null;
     }
 
     public static void main(String[] args) {

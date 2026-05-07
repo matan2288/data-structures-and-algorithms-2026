@@ -22,36 +22,8 @@ public class Node {
     // Example: (2,1,1,1,1,1,8,3,3,3,6,6) → 5 (five consecutive 1s).
     // If the list is empty, return 0.
     public static int getLongest(Node intList) {
-        int tmp_counter = 1;
-        int counter = 1;
-
-        if (intList == null) {
-            return counter;
-        }
-
-        Node head = intList;
-        Node prev = intList;
-        Node current = head.next;
-
-        while (prev != null) {
-
-            while (current != null) {
-                if (prev.data == current.data) {
-                    tmp_counter++;
-                    current = current.next;
-                }
-
-                if (current.next == null) {
-                    prev = prev.next;
-                    current = head;
-
-                }
-            }
-            prev = prev.next;
-
-        }
-
-        return counter;
+        // TODO: implement
+        return 0;
     }
 
     public static void main(String[] args) {
