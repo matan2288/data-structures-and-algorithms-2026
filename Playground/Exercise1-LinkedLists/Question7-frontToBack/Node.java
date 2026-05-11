@@ -11,13 +11,6 @@ public class Node {
         this(data, null);
     }
 
-    // --- Helper: print a linked list ---
-    public static void printList(Node head) {
-        for (Node n = head; n != null; n = n.next)
-            System.out.print(n.data + " -> ");
-        System.out.println("null");
-    }
-
     // Q7: Complete the following method that moves the first node in the linked
     // list
     // pointed to by intList to the end of the list and returns a pointer to the new
@@ -48,6 +41,6 @@ public class Node {
 
         Node print = frontToBack(list);
 
-        printList(print);
+        LinkedListPrinter.printList(print);
     }
 }

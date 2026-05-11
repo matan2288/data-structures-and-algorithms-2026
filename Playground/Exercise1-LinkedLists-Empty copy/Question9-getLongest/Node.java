@@ -11,12 +11,6 @@ public class Node {
         this(data, null);
     }
 
-    public static void printList(Node head) {
-        for (Node n = head; n != null; n = n.next)
-            System.out.print(n.data + " -> ");
-        System.out.println("null");
-    }
-
     // Q9: Return the length of the longest sequence of identical consecutive values
     // in the linked list pointed to by intList.
     // Example: (2,1,1,1,1,1,8,3,3,3,6,6) → 5 (five consecutive 1s).

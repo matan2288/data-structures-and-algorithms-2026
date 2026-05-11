@@ -1,4 +1,4 @@
-# Sorting Methods
+# Part 6 - Sorting Methods
 
 ## 1. Comparison sorts
 

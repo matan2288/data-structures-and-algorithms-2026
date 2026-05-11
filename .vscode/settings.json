@@ -1,17 +1,23 @@
 {
     "java.project.sourcePaths": [
-        "Playground/Exercise2-Recursion/Question1",
-        "Playground/Exercise1-LinkedLists/Question9",
-        "Playground/Exercise1-LinkedLists/Question8",
-        "Playground/Exercise1-LinkedLists/Question7",
-        "Playground/Exercise1-LinkedLists/Question6",
-        "Playground/Exercise1-LinkedLists/Question5",
-        "Playground/Exercise1-LinkedLists/Question4",
-        "Playground/Exercise1-LinkedLists/Question3",
-        "Playground/Exercise1-LinkedLists/Question2",
-        "Playground/Exercise1-LinkedLists/Question10",
-        "Playground/Exercise1-LinkedLists/Question1",
+        "Playground/common",
+        "Playground/Exercise1-LinkedLists-Empty/Question9-getLongest",
+        "Playground/Exercise1-LinkedLists-Empty/Question8-reverse",
+        "Playground/Exercise1-LinkedLists-Empty/Question7-frontToBack",
+        "Playground/Exercise1-LinkedLists-Empty/Question6-deleteNum",
+        "Playground/Exercise1-LinkedLists-Empty/Question5-insertNode",
+        "Playground/Exercise1-LinkedLists-Empty/Question4-getRange",
+        "Playground/Exercise1-LinkedLists-Empty/Question3-sorted",
+        "Playground/Exercise1-LinkedLists-Empty/Question2-avg",
+        "Playground/Exercise1-LinkedLists-Empty/Question10-merge",
+        "Playground/Exercise1-LinkedLists-Empty/Question1-findValues",
+        "Playground/Exercise1-LinkedLists-Empty copy/Question5-insertNode",
         "Playground/Exercise1-LinkedLists-Empty copy/Question1-findValues",
-        "Playground/Exercise1-LinkedLists-Empty copy/Question5-insertNode"
+        "Topics/Part 1 - Records and Linked Lists",
+        "Topics/Part 2 - Recursion",
+        "Topics/Binary Trees",
+        "Topics/Big O Notation",
+        "Topics/Stacks and Queues",
+        "Topics/Sorting Methods"
     ]
 }

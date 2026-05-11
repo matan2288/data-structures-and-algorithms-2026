@@ -11,13 +11,6 @@ public class Node {
         this(data, null);
     }
 
-    // --- Helper: print a linked list ---
-    public static void printList(Node head) {
-        for (Node n = head; n != null; n = n.next)
-            System.out.print(n.data + " -> ");
-        System.out.println("null");
-    }
-
     // Q5: Assuming the list pointed to by intNode is sorted in ascending order,
     // insert a node containing val into the correct position and return a pointer
     // to the head of the list.
@@ -34,6 +27,6 @@ public class Node {
 
         Node print = insertNode(6, list);
 
-        printList(print);
+        LinkedListPrinter.printList(print);
     }
 }

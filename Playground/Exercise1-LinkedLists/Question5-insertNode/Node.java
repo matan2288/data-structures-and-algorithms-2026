@@ -41,18 +41,9 @@ public class Node {
         return intNode;
     }
 
-    // --- Helper: print a linked list ---
-    public static void printList(Node head) {
-        for (Node n = head; n != null; n = n.next)
-            System.out.print(n.data + " -> ");
-        System.out.println("null");
-    }
-
     public static void main(String[] args) {
         Node list = new Node(2, new Node(5, new Node(7, new Node(9))));
 
         Node print = insertNode(6, list);
-
-        printList(print);
     }
 }

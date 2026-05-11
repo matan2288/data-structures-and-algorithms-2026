@@ -1,4 +1,4 @@
-# Binary Trees
+# Part 3 - Binary Trees
 
 ## 1. What is a binary tree?
 

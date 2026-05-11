@@ -1,0 +1,30 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "javac: Node.java + LinkedListPrinter",
+      "type": "shell",
+      "command": "javac",
+      "args": [
+        "${workspaceFolder}/Playground/common/LinkedListPrinter.java",
+        "${fileDirname}/Node.java"
+      ],
+      "group": "build",
+      "problemMatcher": ["$javac"],
+      "detail": "Compile Node with shared LinkedListPrinter (same default package)."
+    },
+    {
+      "label": "java: run Node",
+      "type": "shell",
+      "command": "java",
+      "args": ["Node"],
+      "options": {
+        "cwd": "${fileDirname}"
+      },
+      "group": "test",
+      "dependsOn": ["javac: Node.java + LinkedListPrinter"],
+      "problemMatcher": []
+    }
+  ]
+}
+

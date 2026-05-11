@@ -1,4 +1,4 @@
-# Stacks and Queues
+# Part 5 - Stacks and Queues
 
 ## 1. Stack (LIFO)
 

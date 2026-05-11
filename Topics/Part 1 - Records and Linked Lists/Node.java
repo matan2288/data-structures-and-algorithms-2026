@@ -11,13 +11,6 @@ public class Node {
         this(data, null);
     }
 
-    // --- Helper: print a linked list ---
-    public static void printList(Node head) {
-        for (Node n = head; n != null; n = n.next)
-            System.out.print(n.data + " -> ");
-        System.out.println("null");
-    }
-
     // --- Q4: Check if a linked list is sorted in ascending order ---
     public static boolean sorted(Node head) {
         Node current = head;
@@ -175,7 +168,7 @@ public class Node {
         Node list = new Node(2, new Node(5, new Node(7, new Node(9))));
 
         System.out.println("=== Original list ===");
-        printList(list);
+        LinkedListPrinter.printList(list);
 
         // Q4: sorted
         System.out.println("\n=== Q4: sorted ===");
@@ -184,37 +177,37 @@ public class Node {
         // Q5: insertNode — insert 6 into sorted list
         System.out.println("\n=== Q5: insertNode(6) ===");
         list = insertNode(6, list);
-        printList(list); // 2 -> 5 -> 6 -> 7 -> 9 -> null
+        LinkedListPrinter.printList(list); // 2 -> 5 -> 6 -> 7 -> 9 -> null
 
         // Q6: deleteNum — remove all 6s
         System.out.println("\n=== Q6: deleteNum(6) ===");
         list = deleteNum(6, list);
-        printList(list); // 2 -> 5 -> 7 -> 9 -> null
+        LinkedListPrinter.printList(list); // 2 -> 5 -> 7 -> 9 -> null
 
         // Q7: frontToBack — move first node to end
         System.out.println("\n=== Q7: frontToBack ===");
         list = frontToBack(list);
-        printList(list); // 5 -> 7 -> 9 -> 2 -> null
+        LinkedListPrinter.printList(list); // 5 -> 7 -> 9 -> 2 -> null
 
         // Q8: reverse
         System.out.println("\n=== Q8: reverse ===");
         list = reverse(list);
-        printList(list); // 2 -> 9 -> 7 -> 5 -> null
+        LinkedListPrinter.printList(list); // 2 -> 9 -> 7 -> 5 -> null
 
         // Q9: getLongest — build a list with consecutive duplicates
         System.out.println("\n=== Q9: getLongest ===");
         Node streakList = new Node(2, new Node(1, new Node(1, new Node(1,
                 new Node(1, new Node(1, new Node(8, new Node(3,
                         new Node(3, new Node(3, new Node(6, new Node(6))))))))))));
-        printList(streakList);
+        LinkedListPrinter.printList(streakList);
         System.out.println("Longest streak: " + getLongest(streakList)); // 5
 
         // Q10: merge two sorted lists
         System.out.println("\n=== Q10: merge ===");
         Node a = new Node(2, new Node(2, new Node(3, new Node(5, new Node(6, new Node(8))))));
         Node b = new Node(1, new Node(3, new Node(4, new Node(5))));
-        System.out.print("List A: "); printList(a);
-        System.out.print("List B: "); printList(b);
-        System.out.print("Merged: "); printList(merge(a, b)); // 1 -> 2 -> 2 -> 3 -> 3 -> 4 -> 5 -> 5 -> 6 -> 8 -> null
+        System.out.print("List A: "); LinkedListPrinter.printList(a);
+        System.out.print("List B: "); LinkedListPrinter.printList(b);
+        System.out.print("Merged: "); LinkedListPrinter.printList(merge(a, b)); // 1 -> 2 -> 2 -> 3 -> 3 -> 4 -> 5 -> 5 -> 6 -> 8 -> null
     }
 }

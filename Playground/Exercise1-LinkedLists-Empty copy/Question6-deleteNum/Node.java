@@ -11,13 +11,6 @@ public class Node {
         this(data, null);
     }
 
-    // --- Helper: print a linked list ---
-    public static void printList(Node head) {
-        for (Node n = head; n != null; n = n.next)
-            System.out.print(n.data + " -> ");
-        System.out.println("null");
-    }
-
     // Q6: Complete the following method that removes any nodes from the list
     // intNode
     // that contain the integer value n and returns a pointer to the new head of the
@@ -35,6 +28,6 @@ public class Node {
 
         Node print = deleteNum(2, list);
 
-        printList(print);
+        LinkedListPrinter.printList(print);
     }
 }
