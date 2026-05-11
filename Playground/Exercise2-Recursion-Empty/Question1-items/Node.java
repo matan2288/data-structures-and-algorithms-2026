@@ -14,30 +14,9 @@ public class Node {
     // Q1: Complete the method items to return the length of the linked list
     // given as its parameter (intList).
     // Your solution must be recursive.
-
-    // Node current = head;
-    // int counter = 0;
-
-    // while (current != null) {
-    // if (current.data == num) {
-    // counter++;
-    // }
-
-    // current = current.next;
-    // }
-
-    // return counter;
     public static int items(Node intList) {
-        Node current = intList;
-        int counter = 0;
-
-        if (current != null) {
-            current = current.next;
-            counter++;
-            return counter + items(current);
-        }
-
-        return counter;
+        // TODO: implement
+        return 0;
     }
 
     public static void main(String[] args) {
