@@ -6,10 +6,14 @@ public class Main {
     // Example: getDigitalSum(1857) → 1+8+5+7 = 21 → 2+1 = 3
     // Your solution must be recursive.
     public static int getDigitalSum(int number) {
-
+        if (number < 10) {
+            return number;
+        }
+        
+        return getDigitalSum(number / 10 + number % 10);
     }
 
     public static void main(String[] args) {
-
+        System.out.println(getDigitalSum(1857));
     }
 }

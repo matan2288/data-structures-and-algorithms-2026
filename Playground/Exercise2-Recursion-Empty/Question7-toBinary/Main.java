@@ -9,13 +9,10 @@ public class Main {
     // Remainders read bottom-to-top → "1101"
     // Your solution must be recursive.
     public static String toBinary(int x) {
-        if (x <= 1) {
-            return "" + x;
-        }
-        return toBinary(x / 2) + (x % 2);
+
     }
 
     public static void main(String[] args) {
-        System.out.println(toBinary(13));
+
     }
 }

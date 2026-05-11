@@ -16,21 +16,18 @@ public class Node {
     // The first element of the list is element number 0.
     // Your solution must be recursive.
     public static Node findNode(Node list, int n) {
-        
-        Node current = list;
-
-        if (current != null && current.data != n) {
-            current = current.next;
-            return findNode(current, n);
-        } 
-
-        return list;
+        if (list == null) {
+            return null;
+        }
+        if (n == 0) {
+            return list;
+        }
+        return findNode(list.next, n - 1);
     }
 
     public static void main(String[] args) {
         Node list = new Node(2, new Node(5, new Node(7, new Node(9))));
-        Node print = findNode(list, 5);
-
-        System.out.println(print);
+        Node result = findNode(list, 2);
+        System.out.println(result.data);
     }
 }

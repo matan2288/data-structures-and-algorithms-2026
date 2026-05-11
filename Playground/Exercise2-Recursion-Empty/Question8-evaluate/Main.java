@@ -19,24 +19,10 @@ public class Main {
     //   int n = stk.pop(); // pop from top
     //   stk.empty()        // check if empty
     public static int evaluate(String postfixExpr) {
-        Stack<Integer> stk = new Stack<>();
-        for (int i = 0; i < postfixExpr.length(); i++) {
-            char c = postfixExpr.charAt(i);
-            if (Character.isDigit(c)) {
-                stk.push(c - '0');
-            } else {
-                int b = stk.pop();
-                int a = stk.pop();
-                if (c == '+') stk.push(a + b);
-                else if (c == '-') stk.push(a - b);
-                else if (c == '*') stk.push(a * b);
-                else stk.push(a / b);
-            }
-        }
-        return stk.pop();
+
     }
 
     public static void main(String[] args) {
-        System.out.println(evaluate("12+3*"));
+
     }
 }

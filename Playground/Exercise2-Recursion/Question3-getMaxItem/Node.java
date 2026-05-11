@@ -12,30 +12,29 @@ public class Node {
     }
 
     // Q3: Complete the method getMaxItem to return a pointer to the largest element
-    // of the linked list given by the parameter ptr, or return null if the list is
-    // empty.
+    // of the linked list given by the parameter ptr, or return null if the list is empty.
     // Your solution must be recursive.
     public static Node getMaxItem(Node ptr) {
-
-        if (ptr == null || ptr.next == null) {
+        if (ptr == null) {
             return null;
         }
 
-        Node previous = ptr;
-        Node current = previous.next;
-        
-        if (current != null && current.data > max) {
-            current = current.next;
-            return getMaxItem(current);
+        if (ptr.next == null) {
+            return ptr;
         }
 
-        return ptr;
+        Node maxOfRest = getMaxItem(ptr.next);
+
+        if (ptr.data >= maxOfRest.data) {
+            return ptr;
+        }
+        
+        return maxOfRest;
     }
 
     public static void main(String[] args) {
-        Node list = new Node(2, new Node(5, new Node(3, new Node(4))));
-        Node print = findNode(list, 5);
-
-        System.out.println(print);
+        Node list = new Node(2, new Node(9, new Node(3, new Node(4))));
+        Node result = getMaxItem(list);
+        System.out.println(result.data);
     }
 }

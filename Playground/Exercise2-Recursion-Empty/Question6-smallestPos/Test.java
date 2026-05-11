@@ -15,12 +15,9 @@ public class Test {
         Scanner scan = new Scanner(System.in);
         int n = scan.nextInt();
         while (n > 0) {
-            if (smallest == 0 || n < smallest) {
-                smallest = n;
-                pos = 0;
-            } else {
-                pos++;
-            }
+
+
+
             n = scan.nextInt();
         }
 
