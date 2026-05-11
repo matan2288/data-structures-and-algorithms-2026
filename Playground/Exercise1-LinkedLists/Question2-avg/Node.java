@@ -14,20 +14,19 @@ public class Node {
     // Q2: Complete the following method that calculates the average of the values
     // in the linked list pointed to by list. The average should be reported as 0
     // if the list is empty.
-
     public static double avg(Node list) {
         Node current = list;
         int counter = 0;
         double sum = 0;
 
-        while (current != null) {
-            sum = sum + current.data;
+        while(current != null) {
             counter++;
+            sum = sum + current.data; 
+
             current = current.next;
         }
 
         return sum / counter;
-
     }
 
     public static void main(String[] args) {

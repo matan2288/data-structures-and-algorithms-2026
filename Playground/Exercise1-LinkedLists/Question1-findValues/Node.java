@@ -14,14 +14,14 @@ public class Node {
     // Q1: Complete the following method that returns the number of times that the
     // integer value num appears in the linked list pointed to by head.
     public static int findValues(int num, Node head) {
-        Node current = head;
         int counter = 0;
+        Node current = head;
 
-        while (current != null) {
-            if (current.data == num) {
+
+        while(current != null) {
+            if(current.data == num) {
                 counter++;
             }
-
             current = current.next;
         }
 
@@ -29,7 +29,7 @@ public class Node {
     }
 
     public static void main(String[] args) {
-        Node list = new Node(2, new Node(5, new Node(7, new Node(9))));
+        Node list = new Node(2, new Node(5, new Node(7, new Node(2))));
 
         int print = findValues(2, list);
 

@@ -11,6 +11,13 @@ public class Node {
         this(data, null);
     }
 
+    public static void printList(Node head) {
+        for (Node n = head; n != null; n = n.next) {
+            System.out.print(n.data + " -> ");
+        }
+        System.out.println("null");
+    }
+
     // Q7: Complete the following method that moves the first node in the linked
     // list
     // pointed to by intList to the end of the list and returns a pointer to the new
@@ -18,29 +25,30 @@ public class Node {
     // If the list is empty or contains only one node, do not change the list.
     // Do this without creating any new Nodes.
     public static Node frontToBack(Node intList) {
-        // If the list is empty or contains only one node your method should not change
-        // the list.
         if (intList == null || intList.next == null) {
             return intList;
         }
-        Node newHead = intList.next;
 
-        Node last = intList;
-        while (last.next != null) {
-            last = last.next;
+        Node current = intList.next;
+        Node newHead = current;
+
+        Node headToBack = intList;
+        headToBack.next = null;
+
+        while(current.next != null) {
+            current = current.next;
         }
 
-        last.next = intList;
-        intList.next = null;
+        current.next = headToBack;
 
         return newHead;
     }
 
     public static void main(String[] args) {
-        Node list = new Node(2, new Node(5, new Node(7, new Node(9))));
+        Node list = new Node(2, new Node(5, new Node(7,  new Node(9))));
 
         Node print = frontToBack(list);
 
-        LinkedListPrinter.printList(print);
+        printList(print);
     }
 }
