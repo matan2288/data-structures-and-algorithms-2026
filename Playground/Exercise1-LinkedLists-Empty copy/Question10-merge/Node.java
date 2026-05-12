@@ -23,3 +23,7 @@ public class Node {
 
     }
 }
+
+
+1 3 5 6 8
+3 6 7 8 9 10

@@ -15,7 +15,13 @@ public class Node {
     // given as its parameter (intList).
     // Your solution must be recursive.
     public static int items(Node intList) {
-        // TODO: implement
+
+        if (intList != null) {
+            intList = intList.next;
+            int counter = items(intList);
+            return counter + 1;
+        }
+
         return 0;
     }
 

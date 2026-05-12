@@ -7,9 +7,19 @@ public class Main {
     // Your solution must be recursive.
     public static int getDigitalSum(int number) {
 
+        if (number >= 10) {
+            int dig = number % 10;
+            int new_num = (number - dig) / 10;
+
+            return getDigitalSum(dig + (new_num));
+        }
+
+        return number;
     }
 
     public static void main(String[] args) {
+        int print = getDigitalSum(1857);
 
+        System.out.println(print);
     }
 }

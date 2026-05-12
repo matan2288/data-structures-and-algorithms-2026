@@ -16,8 +16,13 @@ public class Node {
     // empty.
     // Your solution must be recursive.
     public static Node getMaxItem(Node ptr) {
-        // TODO: implement
-        return null;
+
+        if (ptr.next != null && (ptr.data <= ptr.next.data)) {
+            ptr = ptr.next;
+            return getMaxItem(ptr);
+        }
+
+        return ptr;
     }
 
     public static void main(String[] args) {

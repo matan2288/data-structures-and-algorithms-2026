@@ -46,14 +46,12 @@ public class Node {
         Node combined_head = combined;
 
         while (head1 != null && head2 != null) {
-
             if (head1.data >= head2.data) {
                 combined.next = head2;
                 head2 = head2.next;
             } else {
                 combined.next = head1;
                 head1 = head1.next;
-
             }
 
             combined = combined.next;
