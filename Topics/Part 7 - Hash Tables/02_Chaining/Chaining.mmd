@@ -1,0 +1,39 @@
+---
+title: Collision Resolution — Chaining  |  Each slot holds a Linked List
+---
+flowchart TD
+    classDef startEnd fill:#22c55e,stroke:#15803d,color:#fff
+    classDef decision fill:#f59e0b,stroke:#b45309,color:#fff
+    classDef process fill:#3b82f6,stroke:#1d4ed8,color:#fff
+    classDef result fill:#8b5cf6,stroke:#6d28d9,color:#fff
+    classDef collision fill:#ef4444,stroke:#b91c1c,color:#fff
+
+    subgraph PUT ["put(key, value) — Insert or Update"]
+        PA([put key value]):::startEnd --> PB["index = h(key) = key mod m"]:::process
+        PB --> PC{"key already in chain at arr[index]?"}:::decision
+        PC -- Yes --> PD["Update existing entry's value"]:::process
+        PC -- No --> PE["Prepend new Entry(key, value) at head of chain"]:::process
+        PD --> PF([O(1) average · done]):::result
+        PE --> PF
+    end
+
+    subgraph GET ["get(key) — Search"]
+        GA([get key]):::startEnd --> GB["index = h(key)"]:::process
+        GB --> GC["Walk the linked list at arr[index]"]:::process
+        GC --> GD{"current.key == key?"}:::decision
+        GD -- Yes --> GE([Return current.value · found]):::result
+        GD -- "No · advance" --> GF{"current.next == null?"}:::decision
+        GF -- No --> GC
+        GF -- Yes --> GG([Return null · not found]):::result
+    end
+
+    subgraph REMOVE ["remove(key) — Delete"]
+        RA([remove key]):::startEnd --> RB["index = h(key)"]:::process
+        RB --> RC["Walk chain · track previous node"]:::process
+        RC --> RD{"current.key == key?"}:::decision
+        RD -- Yes --> RE["Bypass node: prev.next = current.next"]:::process
+        RE --> RF([Removed · O(1) average · done]):::result
+        RD -- "No · advance" --> RG{"end of chain?"}:::decision
+        RG -- No --> RC
+        RG -- Yes --> RH([Key not found · done]):::result
+    end

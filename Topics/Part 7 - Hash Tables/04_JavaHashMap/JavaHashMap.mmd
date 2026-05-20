@@ -1,0 +1,39 @@
+---
+title: Java HashMap  |  hashCode · equals · Load Factor · Resizing
+---
+flowchart TD
+    classDef startEnd fill:#22c55e,stroke:#15803d,color:#fff
+    classDef decision fill:#f59e0b,stroke:#b45309,color:#fff
+    classDef process fill:#3b82f6,stroke:#1d4ed8,color:#fff
+    classDef result fill:#8b5cf6,stroke:#6d28d9,color:#fff
+    classDef warning fill:#ef4444,stroke:#b91c1c,color:#fff
+
+    subgraph HASHCODE ["hashCode() and equals() Contract"]
+        H1["Every Java object inherits hashCode() and equals() from Object"]:::process
+        H1 --> H2{"Does your class override equals()?"}:::decision
+        H2 -- No --> H3["Default: identity comparison · two refs equal only if same object"]:::result
+        H2 -- Yes --> H4["You MUST also override hashCode()"]:::warning
+        H4 --> H5["Rule: if a.equals(b) is true · then a.hashCode() == b.hashCode() MUST hold"]:::warning
+        H5 --> H6["Violation causes HashMap to store duplicates or lose entries silently"]:::warning
+    end
+
+    subgraph PUT_FLOW ["HashMap.put(key, value) internals"]
+        PA([put key value]):::startEnd --> PB["index = (key.hashCode() ^ (hashCode >>> 16)) & (capacity-1)"]:::process
+        PB --> PC{"Bucket at index empty?"}:::decision
+        PC -- Yes --> PD["Place new Entry(key, value, next=null) here"]:::process
+        PC -- No --> PE{"Existing entry has same key (equals)?"}:::decision
+        PE -- Yes --> PF["Update value · done"]:::process
+        PE -- No --> PG["Add to chain · Java 8+: chain becomes TreeNode after 8 entries"]:::process
+        PD --> PH([O(1) avg · done]):::result
+        PF --> PH
+        PG --> PH
+    end
+
+    subgraph RESIZE ["Load Factor & Resizing"]
+        LA["Default capacity = 16 · default load factor = 0.75"]:::process
+        LA --> LB{"size > capacity × 0.75?"}:::decision
+        LB -- No --> LC([No resize needed]):::result
+        LB -- Yes --> LD["Create new array of size 2n+1"]:::process
+        LD --> LE["Rehash ALL existing entries into new positions"]:::process
+        LE --> LF([Table has more space · O(1) avg restored]):::result
+    end

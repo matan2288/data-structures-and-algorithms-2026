@@ -1,0 +1,39 @@
+---
+title: Collision Resolution — Double Hashing  |  Open Addressing with a second hash function
+---
+flowchart TD
+    classDef startEnd fill:#22c55e,stroke:#15803d,color:#fff
+    classDef decision fill:#f59e0b,stroke:#b45309,color:#fff
+    classDef process fill:#3b82f6,stroke:#1d4ed8,color:#fff
+    classDef result fill:#8b5cf6,stroke:#6d28d9,color:#fff
+    classDef error fill:#ef4444,stroke:#b91c1c,color:#fff
+
+    subgraph CONCEPT ["Key Idea — Open Addressing"]
+        C1["All entries stored directly in the array · no linked lists"]:::process
+        C1 --> C2["On collision: probe for next empty slot using a second hash function"]:::process
+        C2 --> C3["Probe sequence: index = (h1(key) + i * h2(key)) mod m · i = 0,1,2,..."]:::result
+        C3 --> C4["h1(key) = key mod m  |  h2(key) = 1 + (key mod (m-1))"]:::result
+        C4 --> C5["h2 must never return 0 — otherwise probe gets stuck on same slot"]:::error
+    end
+
+    subgraph PUT ["put(key, value) — Insert"]
+        PA([put key value]):::startEnd --> PB["index = h1(key) · step = h2(key) · i = 0"]:::process
+        PB --> PC{"arr[index] empty or same key?"}:::decision
+        PC -- "Empty · place here" --> PD["Store key and value at arr[index]"]:::process
+        PD --> PE([O(1) avg · done]):::result
+        PC -- "Same key · update" --> PD
+        PC -- "Occupied by different key · COLLISION" --> PF["index = (index + step) mod m · i++"]:::process
+        PF --> PG{"i == m? · full table"}:::decision
+        PG -- Yes --> PH([Throw TableFullException]):::error
+        PG -- No --> PC
+    end
+
+    subgraph GET ["get(key) — Search"]
+        GA([get key]):::startEnd --> GB["index = h1(key) · step = h2(key)"]:::process
+        GB --> GC{"arr[index] empty?"}:::decision
+        GC -- Yes --> GD([Return null · key not in table]):::result
+        GC -- No --> GE{"arr[index].key == key?"}:::decision
+        GE -- Yes --> GF([Return value · found]):::result
+        GE -- No --> GG["index = (index + step) mod m"]:::process
+        GG --> GC
+    end

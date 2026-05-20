@@ -1,0 +1,31 @@
+---
+title: Hash Function  |  Maps a large key universe to a small index range
+---
+flowchart TD
+    classDef startEnd fill:#22c55e,stroke:#15803d,color:#fff
+    classDef decision fill:#f59e0b,stroke:#b45309,color:#fff
+    classDef process fill:#3b82f6,stroke:#1d4ed8,color:#fff
+    classDef result fill:#8b5cf6,stroke:#6d28d9,color:#fff
+    classDef bad fill:#ef4444,stroke:#b91c1c,color:#fff
+
+    subgraph PROBLEM ["Problem — Direct Addressing wastes memory"]
+        PA["Universe U of possible keys can be huge · e.g. all 64-bit integers"]:::bad
+        PA --> PB["Allocating one slot per key → enormous array · mostly empty"]:::bad
+        PB --> PC["We only have n actual keys stored · n << |U|"]:::process
+    end
+
+    subgraph SOLUTION ["Solution — Hash Function h(key)"]
+        SA([Key k from universe U]):::startEnd --> SB["Apply hash function: index = h(k) = k mod m"]:::process
+        SB --> SC{"index in range 0..m-1?"}:::decision
+        SC -- Yes --> SD["Access arr[index] directly"]:::process
+        SD --> SE([O(1) average · done]):::result
+        SC -- No --> SF["Adjust: h(k) = ((k mod m) + m) mod m for negative keys"]:::process
+        SF --> SD
+    end
+
+    subgraph QUALITY ["What makes a good hash function?"]
+        Q1["Uniform distribution — spreads keys evenly across all m slots"]:::process
+        Q2["Fast to compute — O(1)"]:::process
+        Q3["Deterministic — same key always gives same index"]:::process
+        Q4["Common: h(k) = k mod m  · choose m as a prime number"]:::result
+    end
