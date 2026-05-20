@@ -1,0 +1,32 @@
+---
+title: Stack (LIFO)  |  push · pop · peek  —  All O(1)
+---
+flowchart TD
+    classDef startEnd fill:#22c55e,stroke:#15803d,color:#fff
+    classDef decision fill:#f59e0b,stroke:#b45309,color:#fff
+    classDef process fill:#3b82f6,stroke:#1d4ed8,color:#fff
+    classDef result fill:#8b5cf6,stroke:#6d28d9,color:#fff
+    classDef error fill:#ef4444,stroke:#b91c1c,color:#fff
+
+    subgraph PUSH ["push(value) — Add to top · O(1)"]
+        PA([push value]):::startEnd --> PB{"Stack empty?"}:::decision
+        PB -- Yes --> PC["Set value as the only element"]:::process
+        PB -- No --> PD["Place value on top of existing elements"]:::process
+        PC --> PE([top → value · size++ · done]):::result
+        PD --> PE
+    end
+
+    subgraph POP ["pop() — Remove from top · O(1)"]
+        POA([pop]):::startEnd --> POB{"Stack empty?"}:::decision
+        POB -- Yes --> POC([Throw NoSuchElementException]):::error
+        POB -- No --> POD["Save reference to top element"]:::process
+        POD --> POE["Remove top element · size--"]:::process
+        POE --> POF([Return saved value · done]):::result
+    end
+
+    subgraph PEEK ["peek() — View top without removing · O(1)"]
+        PKA([peek]):::startEnd --> PKB{"Stack empty?"}:::decision
+        PKB -- Yes --> PKC([Return null]):::result
+        PKB -- No --> PKD["Read top element · do NOT remove it"]:::process
+        PKD --> PKE([Return top value · stack unchanged · done]):::result
+    end

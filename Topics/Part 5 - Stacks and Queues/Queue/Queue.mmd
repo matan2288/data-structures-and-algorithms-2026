@@ -1,0 +1,31 @@
+---
+title: Queue (FIFO)  |  offer · poll · peek  —  All O(1)
+---
+flowchart TD
+    classDef startEnd fill:#22c55e,stroke:#15803d,color:#fff
+    classDef decision fill:#f59e0b,stroke:#b45309,color:#fff
+    classDef process fill:#3b82f6,stroke:#1d4ed8,color:#fff
+    classDef result fill:#8b5cf6,stroke:#6d28d9,color:#fff
+
+    subgraph ENQUEUE ["offer(value) — Add to rear · O(1)"]
+        EA([offer value]):::startEnd --> EB{"Queue empty?"}:::decision
+        EB -- Yes --> EC["Set value as both front and rear"]:::process
+        EB -- No --> ED["Place value at the rear of the queue"]:::process
+        EC --> EE([rear → value · size++ · done]):::result
+        ED --> EE
+    end
+
+    subgraph DEQUEUE ["poll() — Remove from front · O(1)"]
+        DA([poll]):::startEnd --> DB{"Queue empty?"}:::decision
+        DB -- Yes --> DC([Return null]):::result
+        DB -- No --> DD["Save reference to front element"]:::process
+        DD --> DE["Remove front element · front pointer advances · size--"]:::process
+        DE --> DF([Return saved value · done]):::result
+    end
+
+    subgraph PEEK ["peek() — View front without removing · O(1)"]
+        PA([peek]):::startEnd --> PB{"Queue empty?"}:::decision
+        PB -- Yes --> PC([Return null]):::result
+        PB -- No --> PD["Read front element · do NOT remove it"]:::process
+        PD --> PE([Return front value · queue unchanged · done]):::result
+    end
