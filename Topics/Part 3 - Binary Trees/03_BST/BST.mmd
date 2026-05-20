@@ -1,0 +1,39 @@
+---
+title: Binary Search Tree (BST)  |  search · insert · delete  —  O(log n) balanced · O(n) worst
+---
+flowchart TD
+    classDef startEnd fill:#22c55e,stroke:#15803d,color:#fff
+    classDef decision fill:#f59e0b,stroke:#b45309,color:#fff
+    classDef process fill:#3b82f6,stroke:#1d4ed8,color:#fff
+    classDef result fill:#8b5cf6,stroke:#6d28d9,color:#fff
+    classDef error fill:#ef4444,stroke:#b91c1c,color:#fff
+
+    subgraph SEARCH ["search(key) — O(log n)"]
+        SA([search key]):::startEnd --> SB{"node == null?"}:::decision
+        SB -- Yes --> SC([Return null · not found]):::result
+        SB -- No --> SD{"key == node.data?"}:::decision
+        SD -- Yes --> SE([Return node · found]):::result
+        SD -- "key < node.data" --> SF([search left subtree]):::startEnd
+        SD -- "key > node.data" --> SG([search right subtree]):::startEnd
+    end
+
+    subgraph INSERT ["insert(key) — O(log n)"]
+        IA([insert key]):::startEnd --> IB{"node == null?"}:::decision
+        IB -- Yes --> IC([Create new node here · done]):::result
+        IB -- No --> ID{"key < node.data?"}:::decision
+        ID -- Yes --> IE([insert into left subtree]):::startEnd
+        ID -- No --> IF([insert into right subtree]):::startEnd
+    end
+
+    subgraph DELETE ["delete(key) — O(log n)  ·  3 cases"]
+        DA([delete key]):::startEnd --> DB[Find node to delete]:::process
+        DB --> DC{"How many children?"}:::decision
+        DC -- "0 children · leaf" --> DD[Remove node directly]:::process
+        DC -- "1 child" --> DE["Replace node with its only child"]:::process
+        DC -- "2 children" --> DF["Find in-order successor · smallest in right subtree"]:::process
+        DF --> DG["Copy successor's value into current node"]:::process
+        DG --> DH["Delete the successor · always 0 or 1 child"]:::process
+        DD --> DI([Done]):::result
+        DE --> DI
+        DH --> DI
+    end

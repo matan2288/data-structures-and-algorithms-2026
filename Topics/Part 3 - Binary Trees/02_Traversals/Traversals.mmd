@@ -1,0 +1,32 @@
+---
+title: Binary Tree Traversals  |  Pre-order · In-order · Post-order
+---
+flowchart TD
+    classDef startEnd fill:#22c55e,stroke:#15803d,color:#fff
+    classDef decision fill:#f59e0b,stroke:#b45309,color:#fff
+    classDef process fill:#3b82f6,stroke:#1d4ed8,color:#fff
+    classDef result fill:#8b5cf6,stroke:#6d28d9,color:#fff
+
+    subgraph PRE ["Pre-order  —  Root → Left → Right"]
+        PRA([preorder node]):::startEnd --> PRB{"node == null?"}:::decision
+        PRB -- Yes --> PRC([Return]):::result
+        PRB -- No --> PRD["Visit root · print node.data"]:::process
+        PRD --> PRE2([preorder left subtree]):::startEnd
+        PRE2 --> PRF([preorder right subtree]):::startEnd
+    end
+
+    subgraph IN ["In-order  —  Left → Root → Right  ·  BST gives sorted output"]
+        INA([inorder node]):::startEnd --> INB{"node == null?"}:::decision
+        INB -- Yes --> INC([Return]):::result
+        INB -- No --> IND([inorder left subtree]):::startEnd
+        IND --> INE["Visit root · print node.data"]:::process
+        INE --> INF([inorder right subtree]):::startEnd
+    end
+
+    subgraph POST ["Post-order  —  Left → Right → Root"]
+        POA([postorder node]):::startEnd --> POB{"node == null?"}:::decision
+        POB -- Yes --> POC([Return]):::result
+        POB -- No --> POD([postorder left subtree]):::startEnd
+        POD --> POE([postorder right subtree]):::startEnd
+        POE --> POF["Visit root · print node.data"]:::process
+    end

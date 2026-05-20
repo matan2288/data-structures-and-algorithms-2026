@@ -1,0 +1,18 @@
+---
+title: Binary Tree — Structure  |  Each node has at most 2 children
+---
+graph TD
+    classDef root    fill:#22c55e,stroke:#15803d,color:#fff
+    classDef inner   fill:#3b82f6,stroke:#1d4ed8,color:#fff
+    classDef leaf    fill:#8b5cf6,stroke:#6d28d9,color:#fff
+    classDef nilNode fill:#6b7280,stroke:#374151,color:#fff
+
+    R["4  ←  root"]:::root      --> L["2"]:::inner
+    R                            --> RR["7"]:::inner
+    L  --> LL["1  ←  leaf"]:::leaf
+    L  --> LR["3  ←  leaf"]:::leaf
+    RR --> NL["null"]:::nilNode
+    RR --> RL["9  ←  leaf"]:::leaf
+
+    NOTE["Height = 2 edges  |  Nodes = 6  |  Sum = 26"]
+    style NOTE fill:#1e293b,stroke:#475569,color:#94a3b8
