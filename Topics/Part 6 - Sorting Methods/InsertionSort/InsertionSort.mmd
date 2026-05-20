@@ -1,0 +1,18 @@
+---
+title: Insertion Sort  |  O(n²) worst · O(n) best · Space O(n) stack
+---
+flowchart TD
+    classDef startEnd fill:#22c55e,stroke:#15803d,color:#fff
+    classDef decision fill:#f59e0b,stroke:#b45309,color:#fff
+    classDef process fill:#3b82f6,stroke:#1d4ed8,color:#fff
+    classDef result fill:#8b5cf6,stroke:#6d28d9,color:#fff
+
+    A([insertionSort size]):::startEnd --> B{"size <= 1?"}:::decision
+    B -- Yes --> C([Return · sorted]):::result
+    B -- No --> D([insertionSort size-1]):::startEnd
+    D --> E["key = arr[size-1]  ·  j = size-2"]:::process
+    E --> F{"j >= 0 and arr[j] > key?"}:::decision
+    F -- Yes --> G["Shift arr[j] right · j--"]:::process
+    G --> F
+    F -- No --> H["Place key at arr[j+1]"]:::process
+    H --> I([Done]):::result

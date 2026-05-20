@@ -1,0 +1,12 @@
+---
+title: Linked List  |  Access O(n) · Prepend O(1) · Traverse O(n)
+---
+graph LR
+    classDef headTail fill:#22c55e,stroke:#15803d,color:#fff
+    classDef node fill:#3b82f6,stroke:#1d4ed8,color:#fff
+    classDef nullNode fill:#ef4444,stroke:#b91c1c,color:#fff
+
+    head(["head"]):::headTail --> N1["Node · value=1"]:::node
+    N1 -->|next| N2["Node · value=2"]:::node
+    N2 -->|next| N3["Node · value=3"]:::node
+    N3 -->|next| NULL(["null"]):::nullNode

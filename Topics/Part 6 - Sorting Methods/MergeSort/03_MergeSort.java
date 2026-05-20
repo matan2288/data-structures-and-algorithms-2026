@@ -1,7 +1,11 @@
 import java.util.Arrays;
 
-class SortingMergeExample {
+// Merge sort — divide array, sort halves, merge results.
+// Time:  O(n log n) worst | O(n log n) average
+// Space: O(n) auxiliary array for merging
+class MergeSort {
 
+    // O(n log n) time, O(n) extra space for aux[]
     static void mergeSort(int[] a) {
         if (a.length <= 1) {
             return;
@@ -40,6 +44,6 @@ class SortingMergeExample {
     public static void main(String[] args) {
         int[] a = {7, 2, 5, 3, 7, 1, 4};
         mergeSort(a);
-        System.out.println("mergeSort: " + Arrays.toString(a));
+        System.out.println("Merge sort: " + Arrays.toString(a));
     }
 }

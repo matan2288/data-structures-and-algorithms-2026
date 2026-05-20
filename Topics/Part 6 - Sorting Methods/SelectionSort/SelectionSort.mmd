@@ -1,0 +1,14 @@
+---
+title: Selection Sort  |  O(n²) · Space O(n) stack
+---
+flowchart TD
+    classDef startEnd fill:#22c55e,stroke:#15803d,color:#fff
+    classDef decision fill:#f59e0b,stroke:#b45309,color:#fff
+    classDef process fill:#3b82f6,stroke:#1d4ed8,color:#fff
+    classDef result fill:#8b5cf6,stroke:#6d28d9,color:#fff
+
+    A([selectionSort startIdx]):::startEnd --> B{"startIdx >= length-1?"}:::decision
+    B -- Yes --> C([Return · sorted]):::result
+    B -- No --> D["Scan arr[startIdx..length-1] to find minimum index"]:::process
+    D --> E["Swap minimum into arr[startIdx]"]:::process
+    E --> F([selectionSort startIdx+1]):::startEnd

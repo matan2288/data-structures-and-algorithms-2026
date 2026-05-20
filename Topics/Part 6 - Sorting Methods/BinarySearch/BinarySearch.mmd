@@ -1,0 +1,18 @@
+---
+title: Binary Search  |  O(log n) worst · O(1) best · Space O(1)
+---
+flowchart TD
+    classDef startEnd fill:#22c55e,stroke:#15803d,color:#fff
+    classDef decision fill:#f59e0b,stroke:#b45309,color:#fff
+    classDef process fill:#3b82f6,stroke:#1d4ed8,color:#fff
+    classDef result fill:#8b5cf6,stroke:#6d28d9,color:#fff
+
+    A([Start: low=0, high=n-1]):::startEnd --> B{"low <= high?"}:::decision
+    B -- No --> C([Return -1 · not found]):::result
+    B -- Yes --> D["mid = low + (high - low) / 2"]:::process
+    D --> E{"arr[mid] == target?"}:::decision
+    E -- Yes --> F([Return mid · found]):::result
+    E -- "arr[mid] < target" --> G[low = mid + 1]:::process
+    E -- "arr[mid] > target" --> H[high = mid - 1]:::process
+    G --> B
+    H --> B

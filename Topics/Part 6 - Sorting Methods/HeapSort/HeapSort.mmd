@@ -1,0 +1,15 @@
+---
+title: Heap Sort  |  O(n log n) · Space O(n)
+---
+flowchart TD
+    classDef startEnd fill:#22c55e,stroke:#15803d,color:#fff
+    classDef decision fill:#f59e0b,stroke:#b45309,color:#fff
+    classDef process fill:#3b82f6,stroke:#1d4ed8,color:#fff
+    classDef result fill:#8b5cf6,stroke:#6d28d9,color:#fff
+
+    A([Start]):::startEnd --> B["Add all elements to a min-heap PriorityQueue"]:::process
+    B --> C{"Heap empty?"}:::decision
+    C -- No --> D["poll() · removes smallest element"]:::process
+    D --> E["Write to next position in sorted array"]:::process
+    E --> C
+    C -- Yes --> F([Array is sorted]):::result
