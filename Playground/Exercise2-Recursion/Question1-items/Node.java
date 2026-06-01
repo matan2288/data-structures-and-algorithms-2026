@@ -11,7 +11,7 @@ public class Node {
         this(data, null);
     }
 
-    // Q1: Complete the method items to return the length of the linked list
+    // Q1: Complete the method items to return the length of the linked list.
     // given as its parameter (intList).
     // Your solution must be recursive.
     public static int items(Node intList) {
